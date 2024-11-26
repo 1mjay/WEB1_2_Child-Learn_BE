@@ -24,11 +24,10 @@ jobs:
           distribution: 'temurin'
           java-version: 17
 
-      - name: Setup Gradle
-        uses: gradle/actions/setup-gradle@v4
-
-      - name: Build with Gradle
-        run: ./gradlew build
+      - name: 권한 부여 및 gradle 빌드
+        run: |
+          - chmod +x ./gradlew
+          - ./gradlew build
 
       - name: Set up docker buildx
         id: buildx
