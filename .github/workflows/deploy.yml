@@ -13,7 +13,7 @@ env:
 jobs:
   build:
     name: Build
-    runs-on: ubuntu-latest
+    runs-on: [self-hosted, linux, x64, ijuju-test-back]
     steps:
       - name: 레포지토리 체크아웃
         uses: actions/checkout@v4
