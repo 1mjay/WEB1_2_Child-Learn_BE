@@ -6,7 +6,7 @@ on:
       - main
 
 env:
-  DOCKER_IMAGE: ghcr.io/${{ github.actor }}/trading
+  DOCKER_IMAGE: ghcr.io/${{ github.actor }}/ijuju-backend
   VERSION: ${{ github.sha }}
   NAME: ijuju_backend
 
@@ -43,7 +43,9 @@ jobs:
       - name: Build and push
         run: |
           docker build -t ${{ env.DOCKER_IMAGE }}:${{ github.sha }} .
+          docker tag ${{ env.DOCKER_IMAGE }}:${{ github.sha }} ${{ env.DOCKER_IMAGE }}:latest
           docker push ${{ env.DOCKER_IMAGE }}:${{ github.sha }}
+          docker push ${{ env.DOCKER_IMAGE }}:latest
 
   deploy:
     needs: build
