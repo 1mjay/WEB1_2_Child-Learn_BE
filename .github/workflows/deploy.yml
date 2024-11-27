@@ -13,7 +13,7 @@ env:
 jobs:
   build:
     name: Build
-    runs-on: [self-hosted, linux, x64, ijuju-test-back]
+    runs-on: ubuntu-latest
     steps:
       - name: 레포지토리 체크아웃
         uses: actions/checkout@v4
@@ -26,8 +26,8 @@ jobs:
 
       - name: 권한 부여 및 gradle 빌드
         run: |
-          - chmod +x ./gradlew
-          - ./gradlew build
+          chmod +x ./gradlew
+          ./gradlew build
 
       - name: Set up docker buildx
         id: buildx
