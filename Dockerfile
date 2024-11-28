@@ -3,6 +3,11 @@ FROM openjdk:17-jdk-alpine
 
 WORKDIR /app
 
+# 프로덕션 프로파일 활성화
+ENV SPRING_PROFILES_ACTIVE=prod
+
+ENV TZ=Asia/Seoul
+
 # 애플리케이션 JAR 파일 복사
 COPY ./build/libs/ijuju-*.jar ./ijuju-be.jar
 
