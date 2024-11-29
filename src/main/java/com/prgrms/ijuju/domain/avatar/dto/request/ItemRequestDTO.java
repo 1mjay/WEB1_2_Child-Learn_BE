@@ -1,6 +1,6 @@
 package com.prgrms.ijuju.domain.avatar.dto.request;
 
-import com.prgrms.ijuju.domain.avatar.entity.Inventory;
+//import com.prgrms.ijuju.domain.avatar.entity.Inventory;
 import com.prgrms.ijuju.domain.avatar.entity.Item;
 import com.prgrms.ijuju.domain.avatar.entity.ItemCategory;
 import lombok.Builder;

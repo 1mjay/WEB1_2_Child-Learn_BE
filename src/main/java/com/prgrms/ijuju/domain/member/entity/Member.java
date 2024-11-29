@@ -1,6 +1,6 @@
 package com.prgrms.ijuju.domain.member.entity;
 
-import com.prgrms.ijuju.domain.avatar.entity.Inventory;
+//import com.prgrms.ijuju.domain.avatar.entity.Inventory;
 import com.prgrms.ijuju.domain.avatar.entity.Purchase;
 import com.prgrms.ijuju.domain.ranking.entity.Ranking;
 import com.prgrms.ijuju.domain.avatar.entity.Avatar;
