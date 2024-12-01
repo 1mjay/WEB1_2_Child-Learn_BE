@@ -6,6 +6,7 @@ import com.prgrms.ijuju.global.auth.SecurityUser;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.*;
 
@@ -17,6 +18,7 @@ public class BeginStockController {
     private final BeginStockService beginStockService;
 
     @GetMapping
+    @PreAuthorize("isAuthenticated()")
     public ResponseEntity<BeginStockResponse> getBeginStock() {
         log.info("주식 데이터 요청 컨트롤러 실행");
         BeginStockResponse response = beginStockService.getBeginStockDataWithQuiz();
