@@ -11,6 +11,8 @@ import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Collections;
+
 @Slf4j
 @RequiredArgsConstructor
 @RequestMapping("/api/v1/begin-stocks")
@@ -19,8 +21,16 @@ public class BeginStockController {
     private final BeginStockService beginStockService;
 
     @GetMapping
-    @PreAuthorize("isAuthenticated()")
     public ResponseEntity<BeginStockResponse> getBeginStock(HttpServletRequest request) {
+        // 요청 헤더 로깅
+        log.info("=== Request Headers ===");
+        Collections.list(request.getHeaderNames()).forEach(headerName ->
+                log.info("{}: {}", headerName, request.getHeader(headerName)));
+
+        log.info("=== Request URI ===");
+        log.info("Request URI: {}", request.getRequestURI());
+        log.info("Request URL: {}", request.getRequestURL());
+
         // JWT 토큰 로깅
         String authHeader = request.getHeader("Authorization");
         log.info("Authorization Header: {}", authHeader);
